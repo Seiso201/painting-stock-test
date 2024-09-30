@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nu zero waste/brushes</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .product-img {
+            max-height: 400px;
+            object-fit: cover;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        html {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+        }
+        .container {
+            margin-top: 0px;
+        }
+        .input-group {
+            max-width: 250px; /* ปรับขนาดช่องให้เล็กลง */
+        }
+        .btn-cart {
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cart .spinner-border {
+    width: 1rem;
+    height: 1rem;
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn-cart.loading {
+    color: transparent;
+}
+
+.btn-cart.loading .spinner-border {
+    display: inline-block;
+}
+
+.btn-cart.loading:hover {
+    background-color: #1dea49 !important;
+}
+
+.loading-message {
+    display: none;
+}
+
+.loading-message.active {
+    display: block;
+    margin: auto;
+    margin-left: 5px;
+    font-size: 1rem;
+    color: green;
+}
+.active{
+            font-weight: 800;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Nu zero waste</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cart.html">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/q_a.html">Q&A</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Details Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Product Image -->
+                <div class="col-md-4">
+                    <img src="assets/images/20240922_114444-removebg-preview.png" alt="Product Image" class="img-fluid product-img" id="productImage">
+                </div>
+                <!-- Product Details -->
+                <div class="col-md-6">
+                    <h1 class="mb-3">พู่กัน</h1>
+                    <p class="lead" id="productPrice">$25.00</p>
+                    <p class="mb-4" id="productDescription">รายละเอียดสินค้า</p>
+                    
+                    <!-- Toggle for selecting product type -->
+                    <div class="mb-4">
+                        <label for="productType" class="form-label">เลือกยี่ห้อ:</label>
+                        <select class="form-select" id="productType">
+                            <option value="type1" selected>Sakura</option>
+                            <option value="type2">Master Art</option>
+                            <option value="type3">Hi Crafts</option>
+                            <option value="type4">ไทยแหลมทอง</option>
+                        </select>
+                        <label for="productType" class="form-label">เลือกหัวแปรง:</label>
+                        <select class="form-select" id="productType">
+                            <option value="type1" selected>หัวกลม</option>
+                            <option value="type2">ปากแบน</option>
+                            <option value="type3">ปากเกลียว</option>
+                            <option value="type2">หัวมุม</option>
+                        </select>
+                        <label for="productType" class="form-label">เลือกเบอร์:</label>
+                        <select class="form-select" id="productType">
+                            <option value="type1" selected>เบอร์ 00</option>
+                            <option value="type2">เบอร์ 1</option>
+                            <option value="type3">เบอร์ 2</option>
+                            <option value="type2">เบอร์ 3</option>
+                            <option value="type3">เบอร์ 4</option>
+                            <option value="type2">เบอร์ 5</option>
+                            <option value="type3">เบอร์ 6</option>
+                            <option value="type2">เบอร์ 7</option>
+                            <option value="type3">เบอร์ 8</option>
+                            <option value="type2">เบอร์ 9</option>
+                            <option value="type2">เบอร์ 10</option>
+                        </select>
+
+
+                        <label for="productType" class="form-label">เลือกเวลายืม:</label>
+                        <!-- Rental Section -->
+                        <section class="container">
+                            <form>
+                                <!-- Rental Date Picker -->
+                                <div class="mb-3">
+                                    <label for="rentalDate" class="form-label">วันยืม</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                                                <input type="date" class="form-control" id="rentalDate" name="rentalDate">
+                                        </div>
+                                </div>
+
+                        <!-- Return Date Picker -->
+                            <div class="mb-3">
+                                <label for="returnDate" class="form-label">วันคืน</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                                            <input type="date" class="form-control" id="returnDate" name="returnDate">
+                                    </div>
+                            </div>
+                    </div>
+
+                    <div class="d-flex mb-4">
+                        <label class="me-3">เลือกจำนวน: </label>
+                        <input type="number" class="form-control me-3" value="1" min="1" style="width: 80px; height: 40px;">
+                        <p>เหลือ 27 อัน</p>
+                    </div>
+
+                    <div class="d-flex mb-4">
+                        <button id="addToCartBtn" class="btn btn-success btn-cart">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            ใส่ตะกร้า
+                        </button>
+                        
+                        <!-- Loading message -->
+                        <p id="loadingMessage" class="loading-message">เพิ่มสินค้าลงในตะกร้าแล้ว!</p>
+                    </div>
+
+                    <p><strong>Category:</strong> Brush</p>
+                    <p><strong>Availability:</strong> In Stock</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Description Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h3>รายละเอียดเพิ่มเติม</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, alias fuga voluptatum rem nostrum quasi eos voluptates, id ratione delectus repellat voluptatibus quis error aliquid nobis at eveniet aspernatur ex enim nulla neque incidunt modi aperiam laborum! Saepe quidem fuga praesentium pariatur odio eum rem. Unde cum odio laboriosam ab.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 mt-auto">
+        <div class="container text-center">
+            <p>&copy; Nu zero waste. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript to handle product type change -->
+
+    <script>
+        document.getElementById('productType').addEventListener('change', function() {
+            const productImage = document.getElementById('productImage');
+            const productPrice = document.getElementById('productPrice');
+            const productDescription = document.getElementById('productDescription');
+
+            if (this.value === 'type1') {
+                productImage.src = 'assets/images/20240922_114444-removebg-preview.png';
+                productPrice.textContent = '$25.00';
+                productDescription.textContent = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium beatae ipsum officiis sequi dolorum ipsa quae quisquam atque amet fugit.";
+            } else if (this.value === 'type2') {
+                productImage.src = 'assets/images/10060802_ea_1200_2.jpg';
+                productPrice.textContent = '$35.00';
+                productDescription.textContent = "    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo inventore error labore accusantium quisquam esse quam numquam beatae ipsa rerum?";
+            } else if (this.value === 'type3') {
+                productImage.src = 'https://via.placeholder.com/500x400/0000ff';
+                productPrice.textContent = '$45.00';
+                productDescription.textContent = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit aspernatur distinctio iure veniam laborum hic amet, dignissimos nisi accusamus cum!';
+            } else if (this.value === 'type4') {
+                productImage.src = 'https://via.placeholder.com/500x400/0000ff';
+                productPrice.textContent = '$40.00';
+                productDescription.textContent = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit aspernatur distinctio iure veniam laborum hic amet, dignissimos nisi accusamus cum!';
+            }
+        });
+
+        document.getElementById('addToCartBtn').addEventListener('click', function () {
+    var btn = this;
+    var loadingMessage = document.getElementById('loadingMessage');
+
+    // Add 'loading' class to start spinner animation
+    btn.classList.add('loading');
+    btn.disabled = true; // Disable the button to prevent multiple clicks
+
+    // Simulate delay (e.g. 2 seconds)
+    setTimeout(function () {
+        // Remove loading animation
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        
+        // Show the loading message after adding to cart
+        loadingMessage.classList.add('active');
+
+        // Hide the message after 3 seconds
+        setTimeout(function () {
+            loadingMessage.classList.remove('active');
+        }, 3000);
+    }, 2000);
+});
+
+    </script>
+</body>
+</html>

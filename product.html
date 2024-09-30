@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เลือกวันเวลาในการเช่าและคืน</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (for calendar and clock icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.css">
+    <style>
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .input-group {
+            max-width: 250px; /* ปรับขนาดช่องให้เล็กลง */
+        }
+        .active{
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Marketplace</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Rental Section -->
+    <section class="container">
+        <h2>เลือกวันเช่าและวันคืน</h2>
+        <form>
+            <!-- Rental Date Picker -->
+            <div class="mb-3">
+                <label for="rentalDate" class="form-label">วันเช่า</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                    <input type="date" class="form-control" id="rentalDate" name="rentalDate">
+                </div>
+            </div>
+
+            <!-- Return Date Picker -->
+            <div class="mb-3">
+                <label for="returnDate" class="form-label">วันคืน</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                    <input type="date" class="form-control" id="returnDate" name="returnDate">
+                </div>
+            </div>
+
+            <!-- Time Slot Selection -->
+            <div class="mb-3">
+                <label for="timeSlot" class="form-label">เลือกช่วงเวลาในการเช่า</label>
+                <select class="form-select" id="timeSlot" name="timeSlot" aria-label="Time Slot">
+                    <option selected>เลือกช่วงเวลา</option>
+                    <option value="morning">เช้า (09:00 - 12:00)</option>
+                    <option value="afternoon">บ่าย (13:00 - 16:00)</option>
+                    <option value="evening">เย็น (17:00 - 20:00)</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">ยืนยันการเช่า</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-auto">
+        <div class="container text-center">
+            <p>&copy; 2024 Marketplace. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
